@@ -8,14 +8,16 @@ namespace MaXOR.Services.Tree
     {
         private Node child;
 
-        public void Setup(Node child)
+        public void Setup(Node child, float value)
         {
             this.child = child;
+            Value = value;
         }
 
         public override void SetValue()
         {
-            //sprawdz czy wynik sie zgadza
+            if (child.Value.Value == Value)
+                Debug.Log("ok");
         }
     }
 }
