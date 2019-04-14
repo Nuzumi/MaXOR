@@ -1,9 +1,8 @@
-﻿using System.Collections;
+﻿using MaXOR.Services.Tree;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
-namespace MaXOR.Services.Tree
+namespace MaXOR.Model.Tree
 {
     public class MathematicNode : Node
     {

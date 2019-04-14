@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MaXOR.Services.Tree
+namespace MaXOR.Model.Tree
 {
     public class LeafNode : Node
     {

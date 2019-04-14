@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,6 +30,33 @@ namespace MaXOR.Services.Tree
                 result *= values[i];
             return result;
         }
+    }
+
+    public class Subtraction : IEquation
+    {
+        public float GetResult(float[] values)
+        {
+            if (values.Length != 2)
+                throw new ArgumentCountException();
+
+            return values[0] - values[1];
+        }
+    }
+
+    public class Division : IEquation
+    {
+        public float GetResult(float[] values)
+        {
+            if (values.Length != 2)
+                throw new ArgumentCountException();
+
+            return values[0] / values[1];
+        }
+    }
+
+    public class ArgumentCountException : ArgumentException
+    {
+
     }
 }
 
