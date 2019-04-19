@@ -3,10 +3,19 @@ using UnityEngine;
 
 namespace Maxor.Model.View
 {
-    public abstract class Element<T> : IView where T : MonoBehaviour
+    public interface IElement
+    {
+        void Show();
+        void Hide();
+
+        void SetUp(Transform parent);
+    }
+
+    public abstract class Element<T> : IElement where T : MonoBehaviour
     {
         protected T refs;
         protected GameObject go;
+        protected Transform parent;
         protected readonly IServices Services;
         protected readonly IViews Views;
 
@@ -16,6 +25,11 @@ namespace Maxor.Model.View
             Views = views;
             go = Services.PrefabsService.Get(parent, GetType());
             refs = go.GetComponent<T>();
+        }
+        
+        public void SetUp(Transform parent)
+        {
+            this.parent = parent;
         }
 
         public bool IsShown { get; private set; }
@@ -37,5 +51,6 @@ namespace Maxor.Model.View
             IsShown = false;
             go.SetActive(false);
         }
+
     }
 }

@@ -47,5 +47,6 @@ namespace Maxor.Model.View
             IsShown = false;
             go.SetActive(false);
         }
+        
     }
 }
