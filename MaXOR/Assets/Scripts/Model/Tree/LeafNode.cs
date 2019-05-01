@@ -6,9 +6,13 @@ namespace MaXOR.Model.Tree
 {
     public class LeafNode : Node
     {
-        public void SetLeafValue(float value)
+        public float ExpectedValue => expectedValue;
+
+        private float expectedValue;
+
+        public void SetExpectedValue(float value)
         {
-            Value = value;
+            expectedValue = value;
         }
 
         public override void SetValue()

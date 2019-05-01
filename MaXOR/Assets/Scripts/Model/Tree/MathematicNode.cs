@@ -7,14 +7,25 @@ namespace MaXOR.Model.Tree
     public class MathematicNode : Node
     {
         public IEquation Equation { get; set; }
+        public List<Node> Children => children;
 
         private List<Node> children;
         
         public void Setup(AbstractNode parent,IEquation equation, List<Node> children)
         {
-            base.Setup(parent);
+            Setup(parent);
             Equation = equation;
             this.children = new List<Node>(children);
+        }
+
+        public void SetParent(AbstractNode parent)
+        {
+            Setup(parent);
+        }
+
+        public void SetChildren(List<Node> nodes)
+        {
+            children = new List<Node>(nodes);
         }
 
         public override void SetValue()

@@ -6,6 +6,7 @@ namespace MaXOR.Model.Tree
 {
     public class RootNode : AbstractNode
     {
+        public Node Child => child;
         private Node child;
 
         public void Setup(Node child, float value)
