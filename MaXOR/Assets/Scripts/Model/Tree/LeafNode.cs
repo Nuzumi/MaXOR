@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MaXOR.Model.Tree
+namespace Maxor.Model.Tree
 {
     public class LeafNode : Node
     {
+        public override List<Node> Children => null;
         public float ExpectedValue => expectedValue;
 
         private float expectedValue;
@@ -18,6 +19,17 @@ namespace MaXOR.Model.Tree
         public override void SetValue()
         {
             parent.SetValue();
+        }
+
+        public void SetBaseValue(float value)
+        {
+            Value = value;
+            SetValue();
+        }
+
+        public override string ToString()
+        {
+            return "";
         }
     }
 }

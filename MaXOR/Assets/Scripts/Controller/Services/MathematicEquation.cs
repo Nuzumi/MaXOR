@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MaXOR.Services.Tree
+namespace Maxor.Model.Tree
 {
     public interface IEquation
     {
@@ -19,6 +19,11 @@ namespace MaXOR.Services.Tree
                 result += values[i];
             return result;
         }
+
+        public override string ToString()
+        {
+            return "+";
+        }
     }
 
     public class Multiplication : IEquation
@@ -29,6 +34,11 @@ namespace MaXOR.Services.Tree
             for (int i = 0; i < values.Length; i++)
                 result *= values[i];
             return result;
+        }
+
+        public override string ToString()
+        {
+            return "x";
         }
     }
 
@@ -41,6 +51,11 @@ namespace MaXOR.Services.Tree
 
             return values[0] - values[1];
         }
+
+        public override string ToString()
+        {
+            return "-";
+        }
     }
 
     public class Division : IEquation
@@ -51,6 +66,47 @@ namespace MaXOR.Services.Tree
                 throw new ArgumentCountException();
 
             return values[0] / values[1];
+        }
+
+        public override string ToString()
+        {
+            return "/";
+        }
+    }
+
+    public class Factorial : IEquation
+    {
+        public float GetResult(float[] values)
+        {
+            if (values.Length != 1)
+                throw new ArgumentCountException();
+
+            int result = 1;
+            for (int i = 2; i < values[0]; i++)
+                result *= i;
+
+            return result;
+        }
+
+        public override string ToString()
+        {
+            return "!";
+        }
+    }
+
+    public class Element : IEquation
+    {
+        public float GetResult(float[] values)
+        {
+            if (values.Length != 1)
+                throw new ArgumentCountException();
+
+            return (int)Math.Pow(values[0], .5f);
+        }
+
+        public override string ToString()
+        {
+            return "^1/2";
         }
     }
 

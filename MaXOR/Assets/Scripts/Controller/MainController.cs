@@ -1,5 +1,6 @@
 ﻿
 
+using Maxor.Model.Tree;
 using UnityEngine;
 
 namespace Maxor
@@ -8,7 +9,6 @@ namespace Maxor
     {
         IReferences References { get; }
         IServices Services { get; }
-        Canvas Canva { get; }
     }
 
     public class MainController : MonoBehaviour, IMainController
@@ -16,14 +16,15 @@ namespace Maxor
         public IReferences References => references;
         public References references;
 
-        public Canvas Canva => canva;
-        public Canvas canva;
+        public string value;
 
         public IServices Services { get; private set; }
 
         private void Start()
         {
             Services = new Services(this);
+
+            Services.GameService.StartLevel(value);
         }
 
     }

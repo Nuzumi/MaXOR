@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MaXOR.Model.Tree
+namespace Maxor.Model.Tree
 {
     public class RootNode : AbstractNode
     {
-        public Node Child => child;
-        private Node child;
+        public MathematicNode Child => child;
+        private MathematicNode child;
 
-        public void Setup(Node child, float value)
+        public void Setup(MathematicNode child, float value)
         {
             this.child = child;
             Value = value;
@@ -19,6 +19,11 @@ namespace MaXOR.Model.Tree
         {
             if (child.Value.Value == Value)
                 Debug.Log("ok");
+        }
+
+        public override string ToString()
+        {
+            return Value.Value.ToString();
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MaXOR.Model.Tree
+namespace Maxor.Model.Tree
 {
     public abstract class AbstractNode
     {
@@ -12,13 +12,17 @@ namespace MaXOR.Model.Tree
 
     public abstract class Node : AbstractNode
     {
+        public bool HasChildren => Children != null;
+        public abstract List<Node> Children { get; }
         protected AbstractNode parent;
 
         public virtual void Setup(AbstractNode parent)
         {
             this.parent = parent;
+            Value = null;
         }
-       
+
+        public abstract override string ToString();
     }
 }
 

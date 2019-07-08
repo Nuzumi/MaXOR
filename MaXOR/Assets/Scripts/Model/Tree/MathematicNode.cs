@@ -1,17 +1,16 @@
-﻿using MaXOR.Services.Tree;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace MaXOR.Model.Tree
+namespace Maxor.Model.Tree
 {
     public class MathematicNode : Node
     {
         public IEquation Equation { get; set; }
-        public List<Node> Children => children;
+        public override List<Node> Children => children;
 
         private List<Node> children;
         
-        public void Setup(AbstractNode parent,IEquation equation, List<Node> children)
+        public void Setup(AbstractNode parent, IEquation equation, List<Node> children)
         {
             Setup(parent);
             Equation = equation;
@@ -45,7 +44,11 @@ namespace MaXOR.Model.Tree
 
             return true;
         }
-        
+
+        public override string ToString()
+        {
+            return Equation.ToString();
+        }
     }
 
 }

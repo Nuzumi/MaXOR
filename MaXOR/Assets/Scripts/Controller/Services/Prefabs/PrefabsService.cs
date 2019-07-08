@@ -10,6 +10,7 @@ namespace Maxor.Service
         GameObject Get<T>(Transform parent);
         GameObject Get(Transform parent, Type type);
         GameObject Get(string path, Transform parent);
+        U Get<T, U>(Transform parent) where T : U;
 
         GameObject Instantiate(GameObject go, Transform parent, string id);
 
@@ -36,12 +37,18 @@ namespace Maxor.Service
         private void CacheObjects(IPrefabsReferences prefabs)
         {
             for (int i = 0; i < prefabs.Prefabs.Count; i++)
-                cache[prefabs.Paths[i]] = prefabs.Prefabs[i];
+                cache.Add(prefabs.Paths[i], prefabs.Prefabs[i]);
         }
+
 
         public GameObject Get<T>(Transform parent)
         {
             return Get(parent, typeof(T));
+        }
+
+        public U Get<T, U>(Transform parent) where T : U
+        {
+            return Get<T>(parent).GetComponent<T>();
         }
 
         public GameObject Get(Transform parent, Type type)
@@ -92,5 +99,6 @@ namespace Maxor.Service
                 throw new UnityException("Type of " + type.Name + " can't be pooled! No path attribute found! Try specify it's path by attribute!");
             return path;
         }
+
     }
 }

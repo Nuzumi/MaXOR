@@ -7,6 +7,7 @@ namespace Maxor
     {
         IPrefabsReferences PrefabsReferences { get; }
         ISpriteReferences SpriteReferences { get; }
+        IWorldReferences WorldReferences { get; }
     }
 
     public class References : MonoBehaviour, IReferences
@@ -16,5 +17,8 @@ namespace Maxor
 
         public ISpriteReferences SpriteReferences => SpriteReferences;
         public SpriteReferences spriteReferences;
+
+        public IWorldReferences WorldReferences => worldReferences;
+        public WorldReferences worldReferences;
     }
 }

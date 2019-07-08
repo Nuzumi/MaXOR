@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b78ae0d32358c46b1604711175ebf2, type: 3}
   m_Name: PrefabsReferences
   m_EditorClassIdentifier: 
-  prefabs: []
-  paths: []
+  prefabs:
+  - {fileID: 4685529678933118326, guid: 7f455f6a9bc83e446922ad5f8bb215e2, type: 3}
+  - {fileID: 45909828917860914, guid: 23f2f611f588bdb4c812af7833e6fced, type: 3}
+  - {fileID: 330964822530433638, guid: 2f138a797cea0f8419fb3f8c602425cf, type: 3}
+  paths:
+  - Assets/GFX/Views/InputNumber
+  - Assets/GFX/Lines/LineView
+  - Assets/GFX/Views/NodeView

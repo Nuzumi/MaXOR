@@ -1,17 +1,17 @@
-﻿using MaXOR.Model;
-using MaXOR.Model.Tree;
+﻿using Maxor.Model;
+using Maxor.Model.Tree;
 using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MaXOR.Services.Tree
+namespace Maxor.Model.Tree
 {
     public interface ITreeCreatorService
     {
         void Setup();
-        AbstractNode GetTreeRoot(string json);
-        AbstractNode GetTreeRoot(JSONNode node);
+        RootNode GetTreeRoot(string json);
+        RootNode GetTreeRoot(JSONNode node);
     }
 
     public class TreeCreatorService : ITreeCreatorService
@@ -23,12 +23,12 @@ namespace MaXOR.Services.Tree
             SetupEquations();
         }
 
-        public AbstractNode GetTreeRoot(string json)
+        public RootNode GetTreeRoot(string json)
         {
             return GetTreeRoot(Deserialize(json));
         }
 
-        public AbstractNode GetTreeRoot(JSONNode node)
+        public RootNode GetTreeRoot(JSONNode node)
         {
             RootNode rootNode = new RootNode();
             MathematicNode mathematicNode = new MathematicNode();
@@ -79,6 +79,8 @@ namespace MaXOR.Services.Tree
             equations.Add("*", new Multiplication());
             equations.Add("/", new Division());
             equations.Add("-", new Subtraction());
+            equations.Add("!", new Factorial());
+            equations.Add("^1/2", new Element());
         }
 
     }

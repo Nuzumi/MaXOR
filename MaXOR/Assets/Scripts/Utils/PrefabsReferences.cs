@@ -13,6 +13,7 @@ namespace Maxor.Utils
     [CreateAssetMenu(fileName = "References", menuName = "Refs/PrefabReferences")]
     public class PrefabsReferences : ScriptableObject, IPrefabsReferences
     {
+
         public List<GameObject> Prefabs => prefabs;
         public string[] Paths => paths;
 
@@ -24,7 +25,7 @@ namespace Maxor.Utils
         public string[] paths;
         
 #if UNITY_EDITOR
-
+        
         public void Refresh()
         {
             paths = RefreshAndCreatePaths(prefabs);

@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MaXOR.Model;
-using MaXOR.Model.Tree;
+using Maxor.Model;
+using Maxor.Model.Tree;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace MaXOR.Services.Tree
+namespace Maxor.Services.Tree
 {
     public class TreeServiceTest
     {
