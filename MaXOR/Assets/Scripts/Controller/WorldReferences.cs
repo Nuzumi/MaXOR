@@ -10,6 +10,7 @@ namespace Maxor
         GameObject InputNumberContainer { get; }
         Canvas Canva { get; }
         Canvas TreeCanvas { get; }
+        AbstractTreeContainer TreeContainer { get; }
     }
 
     public class WorldReferences : MonoBehaviour, IWorldReferences
@@ -25,5 +26,9 @@ namespace Maxor
         [SerializeField]
         private Canvas treeCanvas;
         public Canvas TreeCanvas => treeCanvas;
+
+        [SerializeField]
+        private AbstractTreeContainer treeContainer;
+        public AbstractTreeContainer TreeContainer => treeContainer; 
     }
 }

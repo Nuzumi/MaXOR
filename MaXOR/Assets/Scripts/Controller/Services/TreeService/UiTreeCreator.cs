@@ -20,24 +20,27 @@ namespace Maxor.Service.TreeService
         public Action OnTreeFinished { get; set; }
         
         private IServices services;
-        private Transform canva;
+        private Transform parent;
+        private AbstractTreeContainer treeContainer;
 
         private const int heightDifferent = StaticConstants.nodeHeightDifference;
         private const int widthDifference = StaticConstants.nodeWidthDifference;
 
-        public UiTreeCreator(IServices services, Transform canva)
+        public UiTreeCreator(IServices services, Transform parent, AbstractTreeContainer treeContainer)
         {
             this.services = services;
-            this.canva = canva;
+            this.parent = parent;
+            this.treeContainer = treeContainer;
         }
 
         public void Create(RootNode node)
         {
             int treeHeight = GetThreeHeight(node.Child);
-            GameObject prefabNode = services.PrefabsService.Get<NodeContainer>(canva.transform);
+            GameObject prefabNode = services.PrefabsService.Get<NodeContainer>(parent);
             NodeContainer nodeContainer = prefabNode.GetComponent<NodeContainer>();
             nodeContainer.SetText(node.ToString());
             CreateFirst(nodeContainer,node.Child, treeHeight);
+            treeContainer.SetContainerSize(nodeContainer);
         }
 
         private int GetThreeHeight(Node node)

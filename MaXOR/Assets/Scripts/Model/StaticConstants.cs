@@ -8,6 +8,8 @@ namespace Maxor.Model
     {
         public const int nodeHeightDifference = 100;
         public const int nodeWidthDifference = 80;
+
+        public const int nodeSize = 80;
     }
 
 }

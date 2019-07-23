@@ -23,8 +23,13 @@ namespace Maxor
         private void Start()
         {
             Services = new Services(this);
-
+            InitViews();
             Services.GameService.StartLevel(value);
+        }
+
+        private void InitViews()
+        {
+            references.WorldReferences.TreeContainer.Init(Services.ZoomService);
         }
 
     }

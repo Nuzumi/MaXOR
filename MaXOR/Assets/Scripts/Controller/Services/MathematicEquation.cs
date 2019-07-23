@@ -7,11 +7,14 @@ namespace Maxor.Model.Tree
 {
     public interface IEquation
     {
+        int InputCount { get; }
         float GetResult(float[] values);
     }
 
     public class Sum : IEquation
     {
+        public int InputCount => 2;
+
         public float GetResult(float[] values)
         {
             float result = 0;
@@ -28,6 +31,8 @@ namespace Maxor.Model.Tree
 
     public class Multiplication : IEquation
     {
+        public int InputCount => 2;
+
         public float GetResult(float[] values)
         {
             float result = 1;
@@ -44,6 +49,8 @@ namespace Maxor.Model.Tree
 
     public class Subtraction : IEquation
     {
+        public int InputCount => 2;
+
         public float GetResult(float[] values)
         {
             if (values.Length != 2)
@@ -60,6 +67,8 @@ namespace Maxor.Model.Tree
 
     public class Division : IEquation
     {
+        public int InputCount => 2;
+
         public float GetResult(float[] values)
         {
             if (values.Length != 2)
@@ -76,6 +85,8 @@ namespace Maxor.Model.Tree
 
     public class Factorial : IEquation
     {
+        public int InputCount => 1;
+
         public float GetResult(float[] values)
         {
             if (values.Length != 1)
@@ -96,6 +107,8 @@ namespace Maxor.Model.Tree
 
     public class Element : IEquation
     {
+        public int InputCount => 1;
+
         public float GetResult(float[] values)
         {
             if (values.Length != 1)
